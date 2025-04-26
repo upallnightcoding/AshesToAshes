@@ -8,6 +8,8 @@ public class HeroCntrl : MonoBehaviour
     [SerializeField] private float walkSpeed = 1.0f;
     [SerializeField] private float runSpeed = 3.0f;
     [SerializeField] private float animationBlendSpeed = 8.9f;
+    [SerializeField] private GameObject mainCamera;
+    [SerializeField] private float rotationSpeed = 20.0f;
 
     private PlayerInputCntrl inputCntrl;
     private Animator animator;
@@ -30,22 +32,17 @@ public class HeroCntrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float targetSpeed = inputCntrl.Run ? runSpeed : walkSpeed;
-        if (inputCntrl.Move == Vector2.zero) targetSpeed = 0.0f;
+        float targetRotation = mainCamera.transform.rotation.eulerAngles.y;
+        Quaternion rotation = Quaternion.Euler(0.0f, targetRotation, 0.0f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 
-        currentVelocity.x = Mathf.Lerp(currentVelocity.x, inputCntrl.Move.x * targetSpeed, animationBlendSpeed * Time.deltaTime);
-        currentVelocity.y = Mathf.Lerp(currentVelocity.y, inputCntrl.Move.y * targetSpeed, animationBlendSpeed * Time.deltaTime);
-
-        //float xVelDiff = currentVelocity.x - rigidBody.velocity.x;
-        //float zVelDiff = currentVelocity.y - rigidBody.velocity.z;
-
-        //float xVelDiff = currentVelocity.x;
-        //float zVelDiff = currentVelocity.y;
-
-        float xVelDiff = inputCntrl.Move.x * targetSpeed;
-        float zVelDiff = inputCntrl.Move.y * targetSpeed;
+        float moveSpeed = inputCntrl.Run ? runSpeed : walkSpeed;
+        currentVelocity.x = Mathf.Lerp(currentVelocity.x, inputCntrl.Move.x * moveSpeed, animationBlendSpeed * Time.deltaTime);
+        currentVelocity.y = Mathf.Lerp(currentVelocity.y, inputCntrl.Move.y * moveSpeed, animationBlendSpeed * Time.deltaTime);
 
         animator.SetFloat(xVelocity, currentVelocity.x);
         animator.SetFloat(yVelocity, currentVelocity.y);
     }
 }
+
+

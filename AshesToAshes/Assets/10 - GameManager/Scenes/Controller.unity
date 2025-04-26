@@ -796,11 +796,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60.000004
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -824,8 +824,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.72808, y: 1.9499999, z: -3.29}
+  m_LocalRotation: {x: 0.1788129, y: 0.0009271735, z: -0.00016850646, w: 0.98388267}
+  m_LocalPosition: {x: 0, y: 2.5, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1051,10 +1051,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: 0.76, y: 1.55, z: -1.29}
+  ShoulderOffset: {x: 0.76, y: 1.42, z: -1.29}
   VerticalArmLength: 0.4
-  CameraSide: 0.979
-  CameraDistance: 2
+  CameraSide: 0.872
+  CameraDistance: 2.27
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 0
@@ -1267,7 +1267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1328648716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 2055618816}
+  m_LookAt: {fileID: 1918991789}
   m_Follow: {fileID: 1918991789}
   m_Lens:
     FieldOfView: 60.000004
@@ -1316,7 +1316,7 @@ Transform:
   m_GameObject: {fileID: 1328648715}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.72808, y: 1.9499999, z: -3.29}
+  m_LocalPosition: {x: 0.56543994, y: 1.8199999, z: -3.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1340,7 +1340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1580657820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,7 +1404,7 @@ MonoBehaviour:
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
-    m_InvertInput: 0
+    m_InvertInput: 1
     m_MinValue: 0
     m_MaxValue: 1
     m_Wrap: 0
@@ -1428,7 +1428,7 @@ MonoBehaviour:
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
-    m_InvertInput: 1
+    m_InvertInput: 0
     m_MinValue: -180
     m_MaxValue: 180
     m_Wrap: 1
@@ -1607,6 +1607,8 @@ MonoBehaviour:
   walkSpeed: 1
   runSpeed: 3
   animationBlendSpeed: 8.9
+  mainCamera: {fileID: 961739749}
+  rotationSpeed: 20
 --- !u!114 &1918991794
 MonoBehaviour:
   m_ObjectHideFlags: 0
