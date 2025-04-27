@@ -42,7 +42,25 @@ public class HeroCntrl : MonoBehaviour
 
         animator.SetFloat(xVelocity, currentVelocity.x);
         animator.SetFloat(yVelocity, currentVelocity.y);
+
+        if (inputCntrl.Fire)
+        {
+            Debug.Log("Fire ...");
+            inputCntrl.Fire = false;
+        }
     }
+
+    /*public void OnFire(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Fire ...");
+            GameObject go = Instantiate(projectile, triggerPoint.position, Quaternion.identity);
+            go.GetComponent<Rigidbody>().AddForce(transform.forward * projectileSO.speed, ForceMode.Impulse); ;
+            go.GetComponent<ProjectileCntrl>().SetProjectileSO(projectileSO).CreateProjectile(go.transform);
+            Destroy(go, projectileSO.duration);
+        }
+    }*/
 }
 
 
