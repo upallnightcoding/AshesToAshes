@@ -66,10 +66,6 @@ namespace A2A
                 Fire = true;
             }
 
-            if (context.canceled)
-            {
-                //Fire = false;
-            }
             //Fire = context.ReadValueAsButton();
         }
 

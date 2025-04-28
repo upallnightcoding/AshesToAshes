@@ -10,6 +10,9 @@ public class HeroCntrl : MonoBehaviour
     [SerializeField] private float animationBlendSpeed = 8.9f;
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private float rotationSpeed = 20.0f;
+    [SerializeField] private Transform triggerPoint;
+    [SerializeField] private ProjectileSO projectileSO;
+    [SerializeField] private GameObject projectilePrefab;
 
     private PlayerInputCntrl inputCntrl;
     private Animator animator;
@@ -45,22 +48,21 @@ public class HeroCntrl : MonoBehaviour
 
         if (inputCntrl.Fire)
         {
-            Debug.Log("Fire ...");
+            OnFire();
             inputCntrl.Fire = false;
         }
     }
 
-    /*public void OnFire(InputAction.CallbackContext context)
+    public void OnFire()
     {
-        if (context.performed)
-        {
-            Debug.Log("Fire ...");
-            GameObject go = Instantiate(projectile, triggerPoint.position, Quaternion.identity);
-            go.GetComponent<Rigidbody>().AddForce(transform.forward * projectileSO.speed, ForceMode.Impulse); ;
-            go.GetComponent<ProjectileCntrl>().SetProjectileSO(projectileSO).CreateProjectile(go.transform);
-            Destroy(go, projectileSO.duration);
-        }
-    }*/
+        Vector3 position = triggerPoint.position;
+        Vector3 direction = (triggerPoint.position - mainCamera.transform.position).normalized;
+
+        GameObject go = Instantiate(projectilePrefab, position, Quaternion.identity);
+        go.GetComponent<Rigidbody>().AddForce(direction * projectileSO.speed, ForceMode.Impulse); 
+        go.GetComponent<ProjectileCntrl>().SetProjectileSO(projectileSO).CreateProjectileTrail(go.transform, position);
+        Destroy(go, projectileSO.duration);
+    }
 }
 
 

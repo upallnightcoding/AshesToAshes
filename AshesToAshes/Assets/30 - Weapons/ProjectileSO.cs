@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Projectile", menuName = "A2A/Projectiles")]
-public class ProjectileSO : MonoBehaviour
+public class ProjectileSO : ScriptableObject
 {
     public string projectileName;
 
-    public GameObject projectilePrefab;
+    public GameObject projectileTrailPrefab = null;
 
-    public GameObject impactPrefab;
+    public GameObject impactPrefab = null;
 
-    public float duration;
+    public float duration = 1.5f;
+
+    public float speed = 200.0f;
 }

@@ -28,9 +28,10 @@ public class ProjectileCntrl : MonoBehaviour
         return (this);
     }
 
-    public void CreateProjectile(Transform parent)
+    public void CreateProjectileTrail(Transform parent, Vector3 position)
     {
-        GameObject go = Instantiate(projectileSO.projectilePrefab, parent);
+        GameObject go = Instantiate(projectileSO.projectileTrailPrefab, position, Quaternion.identity);
+        go.transform.SetParent(parent);
     }
 
     public void OnCollisionEnter(Collision collision)
