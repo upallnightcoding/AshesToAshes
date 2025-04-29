@@ -48,7 +48,7 @@ public class HeroCntrl : MonoBehaviour
 
         if (inputCntrl.Fire)
         {
-            OnFire();
+            //OnFire();
             inputCntrl.Fire = false;
         }
     }
@@ -56,12 +56,18 @@ public class HeroCntrl : MonoBehaviour
     public void OnFire()
     {
         Vector3 position = triggerPoint.position;
-        Vector3 direction = (triggerPoint.position - mainCamera.transform.position).normalized;
+        Vector3 direction = transform.forward;
 
         GameObject go = Instantiate(projectilePrefab, position, Quaternion.identity);
         go.GetComponent<Rigidbody>().AddForce(direction * projectileSO.speed, ForceMode.Impulse); 
         go.GetComponent<ProjectileCntrl>().SetProjectileSO(projectileSO).CreateProjectileTrail(go.transform, position);
         Destroy(go, projectileSO.duration);
+    }
+
+    public void Attack1()
+    {
+        Debug.Log("Attack1 ...");
+        OnFire();
     }
 }
 
