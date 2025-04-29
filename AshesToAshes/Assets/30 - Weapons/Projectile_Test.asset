@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileName: 
   projectileTrailPrefab: {fileID: 525287022881976224, guid: 38252c735e2685a4088ecec642c90297, type: 3}
-  impactPrefab: {fileID: 0}
+  impactPrefab: {fileID: 1568883860631690045, guid: a8d8463704da584429c1fef2e3f823cf, type: 3}
   duration: 5
-  speed: 200
+  speed: 150

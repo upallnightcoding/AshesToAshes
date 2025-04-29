@@ -36,10 +36,13 @@ public class ProjectileCntrl : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        Debug.Log($"OnCollision Enter ... {collision.transform.name}");
+
         if (projectileSO.impactPrefab)
         {
             GameObject go = Instantiate(projectileSO.impactPrefab, transform.position, Quaternion.identity);
             Destroy(go, 1.0f);
+            Destroy(this);
         }
     }
 }

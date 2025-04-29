@@ -66,7 +66,6 @@ public class HeroCntrl : MonoBehaviour
 
     public void Attack1()
     {
-        Debug.Log("Attack1 ...");
         OnFire();
     }
 }
