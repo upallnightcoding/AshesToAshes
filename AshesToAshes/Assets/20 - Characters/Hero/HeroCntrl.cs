@@ -53,7 +53,7 @@ public class HeroCntrl : MonoBehaviour
         }
     }
 
-    public void OnFire()
+    public void OnAttack()
     {
         Vector3 position = triggerPoint.position;
         Vector3 direction = transform.forward;
@@ -62,11 +62,6 @@ public class HeroCntrl : MonoBehaviour
         go.GetComponent<Rigidbody>().AddForce(direction * projectileSO.speed, ForceMode.Impulse); 
         go.GetComponent<ProjectileCntrl>().SetProjectileSO(projectileSO).CreateProjectileTrail(go.transform, position);
         Destroy(go, projectileSO.duration);
-    }
-
-    public void Attack1()
-    {
-        OnFire();
     }
 }
 
